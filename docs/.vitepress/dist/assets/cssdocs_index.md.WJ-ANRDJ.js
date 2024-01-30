@@ -1,0 +1,1 @@
+import{_ as e,c as s,o as t}from"./chunks/framework.ecsjidyR.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"cssdocs/index.md","filePath":"cssdocs/index.md"}'),c={name:"cssdocs/index.md"};function a(o,n,r,d,i,p){return t(),s("div")}const f=e(c,[["render",a]]);export{m as __pageData,f as default};
