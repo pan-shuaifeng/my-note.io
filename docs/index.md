@@ -21,10 +21,10 @@ features:
     details: html css js vue react node uniapp
   - icon: 🖖
     title: 后端知识区
-    details: java 服务器
+    details: java 数据库 服务器
   - icon: 🛠️
     title: 扩展知识区
-    details: 遇到的各种问题及解决方案在这里
+    details: 遇到的各种问题及解决方案
   - icon: 😍
     title: greedy
     details: 你想的就在这里面

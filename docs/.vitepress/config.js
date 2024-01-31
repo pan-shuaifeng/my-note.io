@@ -58,6 +58,7 @@ module.exports = {
                 text: '扩展区',
                 items: [
                     { text: 'echart', link: '/guide/extend/echart' },
+                    { text: 'git', link: '/guide/extend/git.md' },
                     { text: 'Getting Started', link: '/getting-started' },
                 ],
                 collapsible: true,
@@ -67,6 +68,7 @@ module.exports = {
                 items: [
                     { text: 'node.js', link: '/guide/node-js' },
                     { text: 'Getting Started', link: '/getting-started' },
+                    { text: 'git', link: '/guide/problem/git.md '},
                 ],
                 collapsible: true,
                 collapsed: false,
