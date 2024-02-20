@@ -10,7 +10,7 @@
  */
 
 module.exports = {
-    title: '小潘的学习历程', // 网站标题
+    title: '小潘的个人博客', // 网站标题
     description: '总结归纳学习中的知识 effort', // 网站的描述
     base: '/my-note.io/', //  部署时的路径 默认 / ，使用二级地址 /base/
     head: [['link', { rel: 'icon', href: '/favicon.ico' }]],// 添加网站图标
@@ -40,9 +40,29 @@ module.exports = {
             {
                 text: '前端知识区',
                 items: [
-                    { text: 'node.js', link: '/guide/front-end/node-js' },
+                    { text: 'nodejs', link: '/guide/front-end/node-js' },
+                    { text: 'react', link: '/guide/front-end/react/'
+                    ,items:[
+                            {
+                                text:'react入门'
+                                ,
+                                link: '/guide/front-end/react/'
+                            } , {
+                                text:'react路由'
+                                ,
+                                link: '/guide/front-end/react/react-router-dom'
+                            } , {
+                                text:'react状态管理'
+                                ,
+                                link: '/guide/front-end/react/redux'
+                            }
+                        ],
+                        collapsible: false,
+                        collapsed: false,
+                    },
                     { text: 'vue源码', link: '/getting-started' },
                     { text: 'typeScript', link: '/getting-started' },
+                    { text: '前端工程化', link: '/guide/front-end/Engineering' },
                 ],
                 collapsible: false,
                 collapsed: false,
@@ -96,6 +116,7 @@ module.exports = {
     },
     lastUpdated: true,
     markdown: {
+        lineNumbers:true,
         image: {
             lazyLoading: true,
         },
