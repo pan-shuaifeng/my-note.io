@@ -12,6 +12,6 @@ control+R 运行项目
 
 ## 红黑树规则
 
-![AN image](img.png)
+![AN image](/img.png)
 
 
