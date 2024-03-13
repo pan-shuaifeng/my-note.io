@@ -157,6 +157,31 @@ const Layout = () => {
 }
 export default Layout
 
+```
+## 打包路由懒加载
+```js {4,6,14]}
+import Layout from '@/pages/Layout'
+import Login from '@/pages/Login'
+import {createBrowserRouter} from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 
+const Home= lazy(()=>import('@/pages/Home'))
+
+const router = createBrowserRouter([
+    {path:'/',
+    element: <Layout/>,
+        children:[
+            {
+                index:true,
+                element: <Suspense fallback={"加载中"}> <Home/></Suspense>
+            }
+        ]
+    },
+    {path:'/login',
+    element: <Login/>
+    },
+]
+)
+export default router
 
 ```

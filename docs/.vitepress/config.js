@@ -41,28 +41,45 @@ module.exports = {
                 text: '前端知识区',
                 items: [
                     { text: 'nodejs', link: '/guide/front-end/node-js' },
-                    { text: 'react', link: '/guide/front-end/react/'
-                    ,items:[
+                    {
+                        text: 'react', link: '/guide/front-end/react/'
+                        , items: [
                             {
-                                text:'react入门'
+                                text: 'react入门'
                                 ,
-                                link: '/guide/front-end/react/'
-                            } , {
-                                text:'react路由'
+                                link: '/guide/front-end/react/',
+                            }, {
+                                text: 'react路由'
                                 ,
-                                link: '/guide/front-end/react/react-router-dom'
-                            } , {
-                                text:'react状态管理'
+                                link: '/guide/front-end/react/react-router-dom',
+                            }, {
+                                text: 'react状态管理'
                                 ,
-                                link: '/guide/front-end/react/redux'
-                            }
+                                link: '/guide/front-end/react/redux',
+                            },
                         ],
                         collapsible: false,
                         collapsed: false,
                     },
                     { text: 'vue源码', link: '/getting-started' },
                     { text: 'typeScript', link: '/getting-started' },
-                    { text: '前端工程化', link: '/guide/front-end/Engineering' },
+                    {
+                        text: '前端工程化', link: '/guide/front-end/Engineering/'
+                        , items: [
+                            {
+                                text: '工程化',
+                                link: '/guide/front-end/Engineering/',
+                            }, {
+                                text: 'webpack',
+                                link: '/guide/front-end/Engineering/webpack',
+                            }, {
+                                text: 'vite',
+                                link: '/guide/front-end/Engineering/vite',
+                            },
+                        ],
+                        collapsible: false,
+                        collapsed: false,
+                    },
                 ],
                 collapsible: false,
                 collapsed: false,
@@ -71,6 +88,7 @@ module.exports = {
                 items: [
                     { text: 'java基础', link: '/guide/back-end/java' },
                     { text: '数据库', link: '/guide/back-end/mysql' },
+                    { text: 'Apache', link: '/guide/back-end/apache' },
                 ],
                 collapsible: false,
                 collapsed: false,
@@ -88,7 +106,7 @@ module.exports = {
                 items: [
                     { text: 'node.js', link: '/guide/node-js' },
                     { text: 'Getting Started', link: '/getting-started' },
-                    { text: 'git', link: '/guide/problem/git.md '},
+                    { text: 'git', link: '/guide/problem/git.md ' },
                 ],
                 collapsible: true,
                 collapsed: false,
@@ -116,7 +134,7 @@ module.exports = {
     },
     lastUpdated: true,
     markdown: {
-        lineNumbers:true,
+        lineNumbers: true,
         image: {
             lazyLoading: true,
         },
