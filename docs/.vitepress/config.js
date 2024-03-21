@@ -41,6 +41,7 @@ module.exports = {
                 text: '前端知识区',
                 items: [
                     { text: 'nodejs', link: '/guide/front-end/node-js' },
+                    { text: 'MongoDB', link: '/guide/front-end/MongoDB' },
                     {
                         text: 'react', link: '/guide/front-end/react/'
                         , items: [
@@ -89,6 +90,8 @@ module.exports = {
                     { text: 'java基础', link: '/guide/back-end/java' },
                     { text: '数据库', link: '/guide/back-end/mysql' },
                     { text: 'Apache', link: '/guide/back-end/apache' },
+                    { text: 'Docker', link: '/guide/back-end/docker' },
+                    { text: 'Nginx', link: '/guide/back-end/nginx' },
                 ],
                 collapsible: false,
                 collapsed: false,
