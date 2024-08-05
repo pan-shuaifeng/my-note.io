@@ -40,8 +40,7 @@ module.exports = {
             {
                 text: '前端知识区',
                 items: [
-                    { text: 'nodejs', link: '/guide/front-end/node-js' },
-                    { text: 'MongoDB', link: '/guide/front-end/MongoDB' },
+                    { text: 'vue源码(暂无)', link: '/getting-started' },
                     {
                         text: 'react', link: '/guide/front-end/react/'
                         , items: [
@@ -62,8 +61,10 @@ module.exports = {
                         collapsible: false,
                         collapsed: false,
                     },
-                    { text: 'vue源码', link: '/getting-started' },
+                    { text: 'echart', link: '/guide/extend/echart' },
                     { text: 'typeScript', link: '/getting-started' },
+                    { text: 'nodejs', link: '/guide/front-end/node-js' },
+                    { text: 'MongoDB', link: '/guide/front-end/MongoDB' },
                     {
                         text: '前端工程化', link: '/guide/front-end/Engineering/'
                         , items: [
@@ -88,17 +89,34 @@ module.exports = {
                 text: '后端知识区',
                 items: [
                     { text: 'java基础', link: '/guide/back-end/java' },
-                    { text: '数据库', link: '/guide/back-end/mysql' },
+
+                    { text: 'maven（暂无）', link: '/guide/back-end/maven' },
                     { text: 'Apache', link: '/guide/back-end/apache' },
                     { text: 'Docker', link: '/guide/back-end/docker' },
                     { text: 'Nginx', link: '/guide/back-end/nginx' },
+                    { text: 'tomcat', link: '/guide/back-end/tomcat' },
+                ],
+                collapsible: false,
+                collapsed: false,
+            }, {
+                text: '数据库',
+                items: [
+                    { text: '数据库环境', link: '/guide/mysql/mysql' },
+                    { text: '数据库基础语法', link: '/guide/mysql/mysql-bg' },
+                ],
+                collapsible: false,
+                collapsed: false,
+            },{
+                text: 'mac',
+                items: [
+                    { text: 'mac系统使用', link: '/guide/mac/mac-apply' }
                 ],
                 collapsible: false,
                 collapsed: false,
             }, {
                 text: '扩展区',
                 items: [
-                    { text: 'echart', link: '/guide/extend/echart' },
+
                     { text: 'git', link: '/guide/extend/git.md' },
                     { text: 'Getting Started', link: '/getting-started' },
                 ],
@@ -107,8 +125,6 @@ module.exports = {
             }, {
                 text: '遇到的问题',
                 items: [
-                    { text: 'node.js', link: '/guide/node-js' },
-                    { text: 'Getting Started', link: '/getting-started' },
                     { text: 'git', link: '/guide/problem/git.md ' },
                 ],
                 collapsible: true,
