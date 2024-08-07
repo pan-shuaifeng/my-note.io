@@ -12,7 +12,7 @@
 module.exports = {
     title: '小潘的个人博客', // 网站标题
     description: '总结归纳学习中的知识 effort', // 网站的描述
-    base: '/my-note.io/', //  部署时的路径 默认 / ，使用二级地址 /base/
+    base: '/my-note.io/', //  部署时的路径 默认 / ，使用二级地址 /my-note.io/
     head: [['link', { rel: 'icon', href: '/favicon.ico' }]],// 添加网站图标
     // 主题配置
     themeConfig: {
@@ -88,8 +88,16 @@ module.exports = {
             }, {
                 text: '后端知识区',
                 items: [
+                    { text: 'c#',link: '/guide/back-end/c#/basics',
+                    items: [
+                        { text: 'c#基础', link: '/guide/back-end/csharp/basics' },
+                        { text: '文件管理', link: '/guide/back-end/csharp/fileManagement' },
+                        { text: '网络编程', link: '/guide/back-end/csharp/networkProgramming' },
+                    ],
+                        collapsible: false,
+                        collapsed: false,
+                    },
                     { text: 'java基础', link: '/guide/back-end/java' },
-
                     { text: 'maven（暂无）', link: '/guide/back-end/maven' },
                     { text: 'Apache', link: '/guide/back-end/apache' },
                     { text: 'Docker', link: '/guide/back-end/docker' },
