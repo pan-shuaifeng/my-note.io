@@ -93,6 +93,7 @@ module.exports = {
                         { text: 'c#基础', link: '/guide/back-end/csharp/basics' },
                         { text: '文件管理', link: '/guide/back-end/csharp/fileManagement' },
                         { text: '网络编程', link: '/guide/back-end/csharp/networkProgramming' },
+                        { text: 'winform', link: '/guide/back-end/csharp/winform' },
                     ],
                         collapsible: false,
                         collapsed: false,
