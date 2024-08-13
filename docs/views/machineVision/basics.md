@@ -17,7 +17,7 @@
 ## 基本语法
 
 - 不使用顶级语句
-```sharp
+```charp
   using System;
   
   namespace MyApp
