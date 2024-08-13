@@ -17,7 +17,7 @@
 ## 基本语法
 
 - 不使用顶级语句
-```charp
+```csharp
   using System;
   
   namespace MyApp
@@ -32,7 +32,7 @@
   }
   ```
 - 顶级语句
-```sharp
+```csharp
   using System;
   using System.Linq;
   
@@ -156,7 +156,7 @@ bool为真方法不区分大小写
 	  }	
 	  
 	- 自定义类型转换
-   ```
+   ```csharp
     示例：
     using System;
   
@@ -211,7 +211,7 @@ bool为真方法不区分大小写
   }
   
 ## 常量：
-```sharp
+```csharp
 const <type> <name>
 ```
 
@@ -262,7 +262,7 @@ const <type> <name>
 
 - [运算符优先级:](https://www.runoob.com/csharp/csharp-operators.html)
 - 运算符重载operator:
- ```
+ ```csharp
     internal class Program
     {
         static void Main(string[] args)
@@ -342,7 +342,7 @@ const <type> <name>
 
 	- interface接口:接口只能被继承，类，结构体继承接口必须实现它的方法，接口是共有的，不能使用访问修饰符声明(接口可以继承多个，类只能继承一个)
 	- operator：运算符重载
-```
+```csharp
 	     static void Main(string[] args)
 	     {
 	         Console.WriteLine("Hello, World!");
@@ -400,7 +400,7 @@ const <type> <name>
 	- 引用参数：使用的是同一块内存地址，在方法里面改变形参，实参也会改变
 
 		- 使用ref：可以将值参数转换为引用参数
-  ```
+  ```csharp
 		  using System; 
 		  
 		  class Program { static void Main() { 
@@ -413,7 +413,7 @@ const <type> <name>
 		  
 		   static void ModifyValue(ref int num) { num = 20; } }
 ## 可空类型
-```sharp
+```csharp
 int? i = 3;
 等同于
 Nullable<int> i = new Nullable<int>(3);
@@ -423,7 +423,7 @@ int? ii; //默认值null
 ```
 - 定义：? 单问号用于对 int、double、bool 等无法直接赋值为 null 的数据类型进行 null 的赋值，意思是这个数据类型是 Nullable 类型的
 - ??:合并运算符
-```
+```csharp
   using System;
   namespace CalculatorApplication
   {
@@ -481,7 +481,7 @@ new int(){2,4,5}
 ## 索引器：当我们访问数组里面某个属性的时候，是通过索引访问的 [1]就是索引器，索引器本质是通过对象来实现的，通过get和set来获取和设置值
 
 
-```
+```csharp
   internal class TestInt
     {
        private int[] array = new int[10];
@@ -499,8 +499,8 @@ new int(){2,4,5}
     }
 ```
 ## 泛型： //创建一个类 处理int和double类型相加，需要定义两个方法，非常麻烦
- ```//泛型类创建对象的时候要指定类型
-
+ ``` csharp
+ //泛型类创建对象的时候要指定类型
   //泛型的定义
   class ClassA<T> { //Type的缩写 类型是不确定的，可以声明任意类型
       private T a;

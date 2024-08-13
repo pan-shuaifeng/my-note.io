@@ -20,10 +20,10 @@
 | Copy | 复制文件           | `File.Copy(path, "E:\\my-study\\c#文件管理\\本地资源\\副本apache.js");`|
 
 ## FileInfo
-``
+```csharp
 //使用
 FileInfo fileInfo = new FileInfo(path);
-``
+```
 
 | 属性             | 解释          | 示例 |
 |----------------|-------------|----|
@@ -39,7 +39,7 @@ FileInfo fileInfo = new FileInfo(path);
 
 ## FileStream
 #### 读取文件
-```
+```csharp
 string path = "E:\\my-study\\c#文件管理\\本地资源\\apache.js";
 
 //读取文件,没有文件不创建

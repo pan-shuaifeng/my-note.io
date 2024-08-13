@@ -86,7 +86,7 @@
 
 ## 拓展
  1. ```System.Speech //语音类``` 
-```charp
+```csharp
  //实例话语音类
  SpeechSynthesizer speech = new SpeechSynthesizer();
  
