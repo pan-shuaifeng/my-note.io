@@ -1,11 +1,11 @@
 #### 启动mysql  
-```js
+```shell
 sudo /usr/local/mysql/support-files/mysql.server start
 
 //mysql的停止和重启 和 启动相似 把start 替换为 stop 或 restart 即可
 ```
 ## 更改数据库用户密码(8.0以上版本适用)
-```mysql 
+```sql 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '227010';
 
 //root为用户名，227010为密码
@@ -14,15 +14,15 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '227010';
 
 ## 将本地数据库授予远程连接权限
 1.查看数据库用户权限
-```mysql
+```sql
 select user,host from mysql.user;
 ```
 2.选择myql数据库
-```mysql
+```sql
 use mysql
 ```
 3.授权用户权限
-```mysql
+```sql
 UPDATE user SET host='%' WHERE user='your_username';
 ```
 ```
@@ -32,7 +32,7 @@ host ="%"表示任何ip都可以连接,user="your_username"表示你要授权的
 特定IP：如果希望只允许特定IP的访问，可以将 host 设置为特定的IP地址，而不是 '%'。
 ```
 4.刷新权限
-```mysql
+```sql
 FLUSH PRIVILEGES;
 ```
 

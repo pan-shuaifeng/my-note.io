@@ -138,6 +138,18 @@
 | CheckedChanged    | checked属性发生变化时    |
 | CheckStateChanged | checkState属性发生变化时 |
 
+### 图片pictureBox
+
+| 属性       | 解释     | 值          |  
+ |----------|--------|------------| 
+| image    | 图片路径   | type Image |
+| SizeMode | 适应屏幕选项 | type enum  |
+
+### 文件选择框 OpenFileDialog
+| 事件         | 解释                          |
+|------------|-----------------------------|
+| ShowDialog | 打开对话框（返回值是DialogResult枚举类型） |  
+
 ## 拓展
 
 1. ```System.Speech //语音类```

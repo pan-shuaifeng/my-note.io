@@ -37,11 +37,13 @@ module.exports = {
                         text: 'c#',
                         items: [
                             { text: 'c#基础', link: '/views/machineVision/basics.md' },
+                            { text: '事件与委托', link: '/views/machineVision/EventsAndCommissions' },
                             { text: '文件管理', link: '/views/machineVision/fileManagement' },
-                            { text: '网络编程', link: '/views/machineVision/networkProgramming' },
+                            { text: '网络编程', link: '/views/machineVision/networkProgramming' }
                         ],
                     },
                     { text: 'winform', link: '/views/machineVision/winform' },
+                    { text: 'visionPro', link: '/views/machineVision/visionPro' },
                 ],
                 collapsed: false,
             },
