@@ -16,6 +16,7 @@
 ### **ImageSource** 加载图片
    - 本地数据：打开文件、打开文件夹
    - 照相机
+### CogDataAnalysisTool 数据分析工具
 
 ### **CogImageFileTool** 
    - 加载本地图片文件
@@ -33,21 +34,37 @@
 ### **CogSearchMaxTool**
    - 对小细节更加精确
    - 可以对彩色图像进行识别
-
 ### **CogHistogramTool**
    - 检测区域灰度值
 ### **CogResultAnalysisTool**
    - 输出结果
 ### **CogCaliperTool**
    - 卡尺工具
+### **CogToolBlock**
+   - 模块工具
+
 ### **Calibration & Fixturing 标定和空间坐标系建立的工具**
 1. CogFixtureTool
 - 建立基于图像自身特征的定位坐标空间
+### **Color**
+ 1.CogColorMatchTool 颜色匹配工具
 
 ### **Geometry-Creation 创建工具**
 1. CogCreateCircleTool 创建圆
 2. CogCreateEllipseTool 创建椭圆
 3. CogCreateGraphicLabelTool 创建标签
+   - CogGraphicCollection 标签的数组集合类型 (将blob类型添加到标签数组中)
+   ```csharp
+     CogBlobResult b = myList[i] as CogBlobResult;
+      CogPolygon p = b.GetBoundary(); 
+      if( b.Area > 500) //标注用户的选择
+      { p.Color = CogColorConstants.Yellow;
+        p.LineWidthInScreenPixels = 5;
+        p.LineStyle = CogGraphicLineStyleConstants.Solid;
+        gc.Add(p); 
+        user_index[count++] = i;
+      }   
+   ```
 4. CogCreateLineBisectPointsTool 创建两点之间的中垂线
 5. CogCreateLineParallelTool创建直线过某一点的平行线
 6. CogCreateLinePerpendicularTool 创建直线过某一点的垂线
@@ -60,8 +77,10 @@
 2. CogFindCornerTool 查找交叉轴
 3. CogFindEllipseTool 查找椭圆
 ###  **Image Processing 图像处理模块**
-1. CogAffineTransformTool 防射工具
-2. CogImageConvertTool 将彩色图像转换为灰度图像
+1. CogAffineTransformTool 仿射工具
+2. CogHistogramTool 直方图统计工具
+3. CogImageConvertTool 将彩色图像转换为灰度图像
+
 
 
 

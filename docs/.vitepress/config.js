@@ -44,6 +44,7 @@ module.exports = {
                     },
                     { text: 'winform', link: '/views/machineVision/winform' },
                     { text: 'visionPro', link: '/views/machineVision/visionPro' },
+                    { text: 'XML文件操作', link: '/views/machineVision/XML' },
                 ],
                 collapsed: false,
             },
@@ -170,6 +171,9 @@ module.exports = {
         image: {
             lazyLoading: true,
         },
+        toc:{
+          level:[1,2,3,4]
+        }
       
     },
 }
