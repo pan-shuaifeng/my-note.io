@@ -46,6 +46,7 @@ module.exports = {
                     { text: 'visionPro', link: '/views/machineVision/visionPro' },
                     { text: 'HOICON', link: '/views/machineVision/HOICON' },
                     { text: 'XML文件操作', link: '/views/machineVision/XML' },
+                    { text: '面试题', link: '/views/machineVision/InterviewQuestion' },
                 ],
                 collapsed: false,
             },

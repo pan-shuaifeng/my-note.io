@@ -146,7 +146,6 @@
 4. CogImageConvertTool 将彩色图像转换为灰度图像
 5. CogIpOneImageTool 图像处理工具
 6. CogIpTwoImageSubtractTool 对两张图片灰度进行相减
-7. 
 
 
 
