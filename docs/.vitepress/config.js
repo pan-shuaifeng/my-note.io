@@ -44,6 +44,7 @@ module.exports = {
                     },
                     { text: 'winform', link: '/views/machineVision/winform' },
                     { text: 'visionPro', link: '/views/machineVision/visionPro' },
+                    { text: 'HOICON', link: '/views/machineVision/HOICON' },
                     { text: 'XML文件操作', link: '/views/machineVision/XML' },
                 ],
                 collapsed: false,
