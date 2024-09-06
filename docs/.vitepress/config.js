@@ -150,10 +150,17 @@ module.exports = {
                     { text: 'git',link:'/views/CodeManagement/git/index'  },
                 ],
                 collapsed: false,
-            }, {
-                text: 'mac系统',
+            },   {
+                text: '拓展',
                 items: [
-                    { text: 'mac', link: '/views/mac/index' },
+                    { text: 'markdown', link: '/views/expand/md/index' },
+                    {
+                        text: 'mac系统',
+                        items: [
+                            { text: 'mac', link: '/views/mac/index' },
+                        ],
+                        collapsed: false,
+                    },
                 ],
                 collapsed: false,
             },

@@ -10,7 +10,7 @@
 3. 勾选替代高DPI缩放行为
 
 ## visionPro类型
-- CogGraphicCollection 形状的数组集合类型 
+- CogGraphicCollection 形状的数组集合类型  索引类型ICogGraphic
      ```csharp
   //基本使用
      CogBlobResult b = myList[i] as CogBlobResult;
@@ -20,14 +20,16 @@
         p.LineWidthInScreenPixels = 5;
         p.LineStyle = CogGraphicLineStyleConstants.Solid;
         gc.Add(p); 
-      }   
+      }
    ```
 - CogMisc 杂项
    ```csharp
-  
   CogMisc.RadToDeg(弧度)//将弧度转为角度
-
     ```
+- 简单脚本获取控件
+  ```csharp
+  Tools.CogIDTool1.Results[0]
+  ```
 
 ## visionPro工具
 ### **ImageSource** 加载图片
@@ -38,6 +40,10 @@
 - 添加照相机
 
 ### **CogBlobTool斑点工具**
+
+    - 角度
+    - 面积
+    - BoundHeight 边界高度
 
 ### **CogCaliperTool**
 - 卡尺工具
@@ -139,14 +145,22 @@
 ### **ID & Verification**
 1. CogOCRMAXTool 光学字符识别工具
 2. CogOCVMAXTool 光学字符验证工具
+3. CogIDTool 识别解码工具
 ###  **Image Processing 图像处理模块**
 1. CogAffineTransformTool 仿射工具
 2. CogCopyRegionTool 复制图像工具 
 3. CogHistogramTool 直方图统计工具
 4. CogImageConvertTool 将彩色图像转换为灰度图像
 5. CogIpOneImageTool 图像处理工具
+   - 灰度形态调整
+     - 腐蚀 open
+     - 膨胀 Dilate
+   - 中值n*m 
+   - 高通过滤器
+   - 翻转旋转
+   - 均衡 (增强对比度)
+   - 量化
 6. CogIpTwoImageSubtractTool 对两张图片灰度进行相减
-
 
 
 
