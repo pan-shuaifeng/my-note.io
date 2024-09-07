@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # visionPro
 ## 下载安装
 
@@ -8,7 +12,6 @@
   1. 右击软件-属性
 2. 兼容性-> 更改高DPI设置
 3. 勾选替代高DPI缩放行为
-
 ## visionPro类型
 - CogGraphicCollection 形状的数组集合类型  索引类型ICogGraphic
      ```csharp

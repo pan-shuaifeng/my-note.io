@@ -1,12 +1,12 @@
 import {
   useMediaQuery
-} from "./chunk-MNXRYDUQ.js";
+} from "./chunk-KNU2AK25.js";
 import {
   computed,
   ref,
   shallowRef,
   watch
-} from "./chunk-3YS4HNIT.js";
+} from "./chunk-WLIL22LS.js";
 
 // node_modules/vitepress/dist/client/theme-default/index.js
 import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
@@ -14,6 +14,7 @@ import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/clie
 // node_modules/vitepress/dist/client/theme-default/without-fonts.js
 import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/vars.css";
 import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/base.css";
+import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/icons.css";
 import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/utils.css";
 import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/components/custom-block.css";
 import "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code.css";
@@ -25,21 +26,16 @@ import Layout from "/Users/pan/technology/vitepress-starter/node_modules/vitepre
 import { default as default2 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
 import { default as default3 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPImage.vue";
 import { default as default4 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPButton.vue";
-import { default as default5 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeHero.vue";
-import { default as default6 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeFeatures.vue";
-import { default as default7 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeSponsors.vue";
-import { default as default8 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPDocAsideSponsors.vue";
-import { default as default9 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPSponsors.vue";
-import { default as default10 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamPage.vue";
-import { default as default11 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageTitle.vue";
-import { default as default12 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageSection.vue";
-import { default as default13 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
-
-// node_modules/vitepress/dist/client/shared.js
-var inBrowser = typeof document !== "undefined";
-var _a;
-var extraExts = typeof process === "object" && process.env.VITE_EXTRA_EXTENSIONS || ((_a = import.meta.env) == null ? void 0 : _a.VITE_EXTRA_EXTENSIONS) || "";
-var KNOWN_EXTENSIONS = new Set(("3g2,3gp,aac,ai,apng,au,avif,bin,bmp,cer,class,conf,crl,css,csv,dll,doc,eps,epub,exe,gif,gz,ics,ief,jar,jpe,jpeg,jpg,js,json,jsonld,m4a,man,mid,midi,mjs,mov,mp2,mp3,mp4,mpe,mpeg,mpg,mpp,oga,ogg,ogv,ogx,opus,otf,p10,p7c,p7m,p7s,pdf,png,ps,qt,roff,rtf,rtx,ser,svg,t,tif,tiff,tr,ts,tsv,ttf,txt,vtt,wav,weba,webm,webp,woff,woff2,xhtml,xml,yaml,yml,zip" + (extraExts && typeof extraExts === "string" ? "," + extraExts : "")).split(","));
+import { default as default5 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeContent.vue";
+import { default as default6 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeHero.vue";
+import { default as default7 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeFeatures.vue";
+import { default as default8 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPHomeSponsors.vue";
+import { default as default9 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPDocAsideSponsors.vue";
+import { default as default10 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPSponsors.vue";
+import { default as default11 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamPage.vue";
+import { default as default12 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageTitle.vue";
+import { default as default13 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageSection.vue";
+import { default as default14 } from "/Users/pan/technology/vitepress-starter/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
 
 // node_modules/vitepress/dist/client/theme-default/support/utils.js
 import { withBase } from "vitepress";
@@ -93,14 +89,6 @@ function addBase(items, _base) {
     if (item.items)
       item.items = addBase(item.items, base);
     return item;
-  });
-}
-
-// node_modules/vitepress/dist/client/theme-default/composables/hash.js
-var hashRef = ref(inBrowser ? location.hash : "");
-if (inBrowser) {
-  window.addEventListener("hashchange", () => {
-    hashRef.value = location.hash;
   });
 }
 
@@ -207,23 +195,22 @@ function resolveHeaders(headers, range) {
     resolvedHeaders.push({ element, link });
   }
   const ret = [];
-  outer:
-    for (let i = 0; i < headers.length; i++) {
-      const cur = headers[i];
-      if (i === 0) {
-        ret.push(cur);
-      } else {
-        for (let j = i - 1; j >= 0; j--) {
-          const prev = headers[j];
-          if (prev.level < cur.level) {
-            ;
-            (prev.children || (prev.children = [])).push(cur);
-            continue outer;
-          }
+  outer: for (let i = 0; i < headers.length; i++) {
+    const cur = headers[i];
+    if (i === 0) {
+      ret.push(cur);
+    } else {
+      for (let j = i - 1; j >= 0; j--) {
+        const prev = headers[j];
+        if (prev.level < cur.level) {
+          ;
+          (prev.children || (prev.children = [])).push(cur);
+          continue outer;
         }
-        ret.push(cur);
       }
+      ret.push(cur);
     }
+  }
   return ret;
 }
 
@@ -254,16 +241,17 @@ var without_fonts_default = theme;
 export {
   default2 as VPBadge,
   default4 as VPButton,
-  default8 as VPDocAsideSponsors,
-  default6 as VPHomeFeatures,
-  default5 as VPHomeHero,
-  default7 as VPHomeSponsors,
+  default9 as VPDocAsideSponsors,
+  default5 as VPHomeContent,
+  default7 as VPHomeFeatures,
+  default6 as VPHomeHero,
+  default8 as VPHomeSponsors,
   default3 as VPImage,
-  default9 as VPSponsors,
-  default13 as VPTeamMembers,
-  default10 as VPTeamPage,
-  default12 as VPTeamPageSection,
-  default11 as VPTeamPageTitle,
+  default10 as VPSponsors,
+  default14 as VPTeamMembers,
+  default11 as VPTeamPage,
+  default13 as VPTeamPageSection,
+  default12 as VPTeamPageTitle,
   without_fonts_default as default,
   useLocalNav,
   useSidebar
