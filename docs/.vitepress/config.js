@@ -181,7 +181,7 @@ module.exports = {
             lazyLoading: true,
         },
         toc:{
-          level:[2,3],
+          level:[1,3],
             label:"当前页大纲"
         }
       
