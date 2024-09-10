@@ -164,6 +164,8 @@ outline: deep
    - 均衡 (增强对比度)
    - 量化
 6. CogIpTwoImageSubtractTool 对两张图片灰度进行相减
+7. CogSobelEdgeTool 梯度边缘检测工具
+8. 
 
 
 
