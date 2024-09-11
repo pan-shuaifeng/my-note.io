@@ -20,9 +20,7 @@ outline: deep
 ### area_center 获取区域的中心位置
 *  获取到SelectedRegions图片的面积和中心原点  
 `area_center(SelectedRegions,Area,Row,Column)` 
-### get_image_size 获取照片的宽高
-* 获取照片的宽高并赋值给Height,Width变量
-`get_image_size(Image,Height,Width)`
+
 ### hom_mat2d_identity 获取图片的矩阵
 * 获取图片的矩阵赋值给HomMat2D
 `hom_mat2d_identity(HomMat2D)`
@@ -41,9 +39,24 @@ outline: deep
 
 
 ## 文件
+### gen_image_const 生成一个常量图像
+* 设置一个单通道图片，大小 宽为12像素，高为9像素  
+`gen_image_const(Image,'byte',12,9)`
+### set_grayval 设置某个像素点的灰度值
+* 设置Image图片中坐标为0,0的像素点灰度值为255  
+`set_grayval(Image,0,0,255)`
+### write_image 写入图片文件
+* 将Image图片写入到文件中，文件名为clip 无法识别的区域用黑色代替（灰度值为0）  
+`write_image(Image,'pnd',0,'clip.png')`
 ### read_image 读取图片文件
 * 读取图片文件，赋值给Image变量  
 `read_image(Image,'clip')`
+### get_image_size 获取照片的宽高
+* 获取照片的宽高并赋值给Height,Width变量  
+  `get_image_size(Image,Height,Width)`
+
+
+
 
 ## 窗口
 ### dev_open_window 打开一个窗口
