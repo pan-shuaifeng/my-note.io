@@ -25,9 +25,28 @@ outline: deep
         gc.Add(p); 
       }
    ```
-- CogMisc 杂项
+  - 斑点工具(特殊)
+  ```csharp
+   CogBlobResult b = myList[i] as CogBlobResult;
+   p.Color = CogColorConstants.Yellow;
+        p.LineWidthInScreenPixels = 5;
+        p.LineStyle = CogGraphicLineStyleConstants.Solid;
+  //获取边界
+  CogPolygon p = b.GetBoundary();
+  //创建一个矩形
+  CogRectangleAffine rect = new CogRectangleAffine();
+  rect = cbtItem.GetBoundingBox(CogBlobAxisConstants.Principal)//获取斑点最小的外接矩形
+  rect = cbtItem.GetBoundingBox(CogBlobAxisConstants.PixelAligned)//获取像素对齐的外接矩形
+  
+  double h = b.GetMeasure(CogBlobMeasureConstants.BoundingBoxExtremaAngleHeight); // ImageBoundHeight 获取边界高度
+   ```
+- 杂项
    ```csharp
   CogMisc.RadToDeg(弧度)//将弧度转为角度
+  
+  CogPointMarker //创建标记点
+  
+  GetInputPointFromOutputPoint //获取输入点
     ```
 - 简单脚本获取控件
   ```csharp
@@ -142,8 +161,8 @@ outline: deep
 9. CogDistancePointLineTool 计算点到直线的距离
 10. CogDistancePointPointTool 计算两点之间的距离 
 11. CogDistanceSegmentLineTool 计算点到线段的距离
-12. CogDistanceSegmenCircleTool 计算线段到圆的距离
-13. CogDistanceSegmenEllipseTool 计算线段到椭圆的距离
+12. CogDistanceSegmentCircleTool 计算线段到圆的距离
+13. CogDistanceSegmentEllipseTool 计算线段到椭圆的距离
 14. CogDistanceSegmentSegmentTool 计算线段到线段的距离
 ### **ID & Verification**
 1. CogOCRMAXTool 光学字符识别工具
@@ -165,7 +184,6 @@ outline: deep
    - 量化
 6. CogIpTwoImageSubtractTool 对两张图片灰度进行相减
 7. CogSobelEdgeTool 梯度边缘检测工具
-8. 
 
 
 
