@@ -46,7 +46,19 @@ module.exports = {
                     { text: 'visionPro', link: '/views/machineVision/visionPro' },
                     { text: 'HOICON', link: '/views/machineVision/HOICON' },
                     { text: 'XML文件操作', link: '/views/machineVision/XML' },
-                    { text: '面试题', link: '/views/machineVision/InterviewQuestion' },
+                    { text: '面试题', link: '/views/machineVision/InterviewQuestion',
+                        items: [
+                            { text: '全部', link: '/views/machineVision/InterviewQuestion.md' },
+                      /*       { text: 'c#面试题', link: '/views/machineVision/basics.md' },
+                            { text: '硬件选型面试题', link: '/views/machineVision/basics.md' },
+                            { text: 'VisionPro面试题', link: '/views/machineVision/basics.md' },
+                            { text: '打光方式面试题', link: '/views/machineVision/basics.md' },
+                            { text: '项目相关面试题', link: '/views/machineVision/basics.md' },
+                            { text: '真实面试', link: '/views/machineVision/basics.md' },
+                            { text: '深度学习', link: '/views/machineVision/basics.md' },
+                            { text: '自动化知识培训', link: '/views/machineVision/basics.md' } */
+                        ]
+                    },
                 ],
                 collapsed: false,
             },

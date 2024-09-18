@@ -52,6 +52,12 @@ outline: deep
   ```csharp
   Tools.CogIDTool1.Results[0]
   ```
+- label工具输入颜色
+  ```csharp
+  右键-> Add Output ->浏览 -> visionPro -> CogColorConstants
+  帮助-> 搜索 CogColorConstants->Cognex.VisionPro.Core.ddl
+  ```
+![img.png](img.png)
 
 ## visionPro工具
 ### **ImageSource** 加载图片

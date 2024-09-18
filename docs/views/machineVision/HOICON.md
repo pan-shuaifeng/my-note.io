@@ -2,7 +2,7 @@
 outline: deep
 ---
 # HaIcon
---- 
+---
 # 算子
 ## 图像
 ### rgb1_to_gray 彩色转灰度图像
@@ -13,10 +13,55 @@ outline: deep
 `mirror_image(Image,mirrorImage,'row')`
 ### threshold 阈值分割
 *  将GrayImage图片进行二值化处理，赋值给Region变量  
-`threshold(GrayImage,Region,128,255)`
+  `threshold(GrayImage,Region,128,255)`
+
+### dyn_threshold 动态阈值分割
+
+- 局部阈值分割操作
+
+  ` dyn_threshold(ImageOpening,ImageClosing,RegionDynThresh,75,'not_equal')`
+
+### auto_threshold 使用直方图确定阈值对图像进行分割
+
+- 基于阈值，分割成前景（亮区域）和后景（暗区域）
+
+- 会自动计算阈值，根据阈值划分成不同的区域（Region）
+
+  `auto_threshold(Image,Regions,5)`
+
 ### connection 连通域分析
+
 *  将Region变量进行连通域分析，赋值给ConnectedRegions变量      
 `connection(Region,ConnectedRegions)`
+### fill_up 填充连通域
+*  将ConnectedRegions变量进行填充，赋值给FilledRegions变量  
+`fill_up(ConnectedRegions,FilledRegions)`
+### shape_trans 拟合轮廓形状
+*  将FilledRegions变量进行轮廓形状拟合，赋值给FilledRegions变量  
+`shape_trans(FilledRegions,FilledRegions,'outer_circle')`
+### difference 计算差值
+*  计算Image和mirrorImage的差值，赋值给Difference变量  
+`difference(Image,mirrorImage,Difference)`
+### erosion_circle 腐蚀操作
+*  将Difference变量进行腐蚀操作，腐蚀程度为Size，赋值给Erosion变量  
+  `erosion_circle(Difference,Erosion,Size)`
+
+### gray_opening_shape 灰度开运算
+
+- 开运算是形态学处理中的一种基本操作，他首先对图像进行腐蚀（erosion）,然后进行膨胀（dilation)
+
+  这种组合有助于去除小的明亮的活着暗淡的区域（即噪声），同时保持图像上的整体形状和结构` gray_opening_shape(Image,ImageOpening,7,7,'octagon')`
+
+### gray_closing_shape 灰度闭运算
+
+- 闭运算是形态学处理中的一种基本操作，他首先对图像进行膨胀（dilation),然后进行腐蚀（erosion）
+
+  这种组合有助于填充图像中的小孔或黑色区域，同时平滑图像的轮廓，但不会显著的改变他们的总体位置和形状。` gray_closing_shape(Image,ImageClosing,7,7,'octagon')`
+
+### region_to_bin 区域二值化
+
+*  将Erosion变量进行二值化处理，显示区域的灰度值为255，背景为0，生成图像的宽为656，高为492， 赋值给Region变量  
+`region_to_bin(Erosion,Region,255,0,656,492)`
 ### select_sharp 借助形状特征选择区域
 *   筛选ConnectedRegions变量中面积在150到99999之间的区域，赋值给SelectedRegions变量      
 `select_sharp(ConnectedRegions,SelectedRegions,'area','and',150,99999)` 
@@ -29,14 +74,22 @@ outline: deep
 ### smallest_rectangle1 获取最小外接矩形
 *  获取到SelectedRegions图片的最小外接矩形,拿到每一个矩形的信息赋值给Row,Column,Phi,Length1,Length2
 `smallest_rectangle2(SelectedRegions,Row,Column,Phi,Length1,Length2)`
-
-
 ### read_ocr_multi_class_mlp 读取OCR模型
 *  读取OCR模型，赋值给ModelID变量  
 `read_ocr_multi_class_mlp('Indudustrial_0-9A-Z_NoRej.omc',OCRHandle)`
+### skeleton 获取骨架
+*  获取到SelectedRegions图片的骨架，赋值给Skeleton变量  
+`skeleton(SelectedRegions,Skeleton)`
+### gray_histo 计算灰度直方图分布
+*  
+`gray_histo(Image,Image,AbsoluteHisto,RelativeHisto)`
+### histo_to_thresh 根据图像直方图自动确定阈值，从而将灰度图像转化为二值图像
+*
+`histo_to_thresh(RelativeHisto,8,MinThresh,MaxThresh)`
+
 ## 仿射变换
 ### hom_mat2d_identity 获取图片的矩阵常量
-* 获取图片的常量矩阵赋值给HomMat2D
+* 获取图片的常量矩阵赋值给HomMat2D  
   `hom_mat2d_identity(HomMat2D)`
 ### hom_mat2d_translate 平移矩阵
 *  将HomMat2D矩阵进行平移，Row为行，Column为列，赋值给HomMat2DTranslate变量  
@@ -73,12 +126,28 @@ outline: deep
 ### sp_distribution 生成椒盐噪声分布
 * 生成30百分比的盐（白色像素），40胡椒粉（黑噪声像素），将噪声分布赋值给Distribution  
 `sp_distribution(30,40,Distribution)`
-### mean_image  均值滤波
+### mean_image  均值滤波,通过平均平滑
 * 将Image图片进行均值滤波，滤镜遮罩高度为3宽度为3的图片赋值给Mean变量  
 `mean_image(Image,Mean,3,3)`
+
+## 图像锐化
 ### sobel_amp 使用Sobel算子检测边缘（振幅） （图像锐化）
-* 使用Sobel算子检测边缘（振幅） 将Image图片进行边缘检测，过滤类型为sum_abs,滤镜遮罩大小为3，赋值给Amp变量   
-`sobel_amp(Image,Amp,'sum_abs',3)`
+* 使用Sobel算子检测边缘（振幅） 将Image图片进行边缘检测，过滤类型为sum_abs,滤镜遮罩大小为3，赋值给Amp变量  
+` sobel_amp(Image,Amp,'sum_abs',3)`
+### laplace 拉普拉斯算法
+* 使用拉普拉斯算法将Image图片进行边缘检测，滤镜遮罩大小为3，赋值给Laplace变量  
+`laplace(Image,ImageLaplace,'signed',3,'n_4')`
+## 频域图像处理
+### fft_generic 快速傅里叶变换
+* 将Image图片进行快速傅里叶变换，赋值给ImageFFT变量 ('to_freq'正变换,'from_freq'反变换)  
+`fft_generic(Image,ImageFFT,'to_freq',-1,'sqrt','dc_center','complex')`
+### gen_lowpass 生成低通滤波器模型
+* 生成一个低通滤波器，赋值给ImageLowpass变量，半径为0.1，类型为none，中心为dc_center，宽高为Width,Height  
+`gen_lowpass(ImageLowpass,0.1,'none','dc_center',Width,Height)`
+### convol_fft 
+* 将ImageFFT图片进行卷积操作，赋值给ImageFFTConv变量  
+`convol_fft(ImageFFT,ImageLowpass,ImageFFTConv)`
+
 ## 文件
 ### gen_image_const 生成一个常量图像
 * 设置一个单通道图片，大小 宽为12像素，高为9像素  
@@ -104,6 +173,9 @@ outline: deep
 ### dev_open_window 打开一个窗口
 * 打开一个窗口  位置在0，0，宽高为自适应，背景为黑色，赋值给WindowID变量  
 ```dev_open_window(0,0,-1,-1,'black',WindowID)```
+### dev_close_window 关闭窗口
+* 关闭WindowID窗口  
+  `dev_close_window(WindowID)`
 ### dev_display
 * 将Image图片显示在窗口上  
 `dev_display(Image)`
@@ -116,12 +188,19 @@ outline: deep
 ### reduce_domain
 * 缩小图像的区域 将Image图片根据Rectangle矩形框进行裁剪，赋值给Mask变量  
 `reduce_domain(Image,Rectangle,Mask)`
-
-### dev_display
+### dev_set_part
 * 修改显示的图像部分  将Emphasize图片显示在WindowID窗口上，显示部分为Rectangle矩形框  
 `dev_set_part(Row1,Column1,Row2,Column2)`
+### dev_disp_text
+* 在windows窗口上显示文本，文本内容为Text  
+`dev_disp_text(Text,'window',Row,Column,'black',[],[])`
 
+### set_display_font 设置字体
+* 设置窗口显示的字体，字体大小为26，字体类型为mono，字体粗体为true，斜体为false  
+`set_display_font(WindowID,26,'mono','true','false')`
 ## 颜色
 ### SetColored 设置颜色数量
-* 设置颜色数量为12  
-`SetColored(Image,12)`
+* 设置颜色数量为12    
+  `SetColored(Image,12)`
+
+### dev_set_colored 设置颜色数量
