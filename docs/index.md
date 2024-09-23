@@ -12,9 +12,6 @@ hero:
     - theme: brand
       text: 快速开始
       link: /views/
-    - theme: alt
-      text: 在 github 上查看
-      link: https://github.com/vuejs/vitepress
 features:
   - icon: ⚡️
     title: 前端知识区

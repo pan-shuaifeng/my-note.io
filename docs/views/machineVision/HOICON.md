@@ -3,6 +3,18 @@ outline: deep
 ---
 # HaIcon
 ---
+杂项写法
+
+````HaIcon
+*角度转弧度
+rad(0)
+
+num:=[1,2,3,4,5,6,7,8,9]
+*获取元组长度
+tuple_length(nums,Length)
+````
+### 引入文件加所有文件
+ 助手 -> 打开新的 Image Acquisition -> 点击图像文件 -> 选择路径 —> 点击代码生成 -> 点击插入代码
 # 算子
 ## 图像
 ### rgb1_to_gray 彩色转灰度图像
@@ -11,32 +23,11 @@ outline: deep
 ### mirror_image 镜像翻转图像
 * 将Image图片进行镜像翻转，赋值给mirrorImage变量 （row垂直翻转，column水平翻转）  
 `mirror_image(Image,mirrorImage,'row')`
-### threshold 阈值分割
-*  将GrayImage图片进行二值化处理，赋值给Region变量  
-  `threshold(GrayImage,Region,128,255)`
 
-### dyn_threshold 动态阈值分割
-
-- 局部阈值分割操作
-
-  ` dyn_threshold(ImageOpening,ImageClosing,RegionDynThresh,75,'not_equal')`
-
-### auto_threshold 使用直方图确定阈值对图像进行分割
-
-- 基于阈值，分割成前景（亮区域）和后景（暗区域）
-
-- 会自动计算阈值，根据阈值划分成不同的区域（Region）
-
-  `auto_threshold(Image,Regions,5)`
-
-### connection 连通域分析
-
-*  将Region变量进行连通域分析，赋值给ConnectedRegions变量      
-`connection(Region,ConnectedRegions)`
 ### fill_up 填充连通域
 *  将ConnectedRegions变量进行填充，赋值给FilledRegions变量  
 `fill_up(ConnectedRegions,FilledRegions)`
-### shape_trans 拟合轮廓形状
+### shape_trans 变换区域形状，是轮廓更加平滑
 *  将FilledRegions变量进行轮廓形状拟合，赋值给FilledRegions变量  
 `shape_trans(FilledRegions,FilledRegions,'outer_circle')`
 ### difference 计算差值
@@ -51,6 +42,8 @@ outline: deep
 - 开运算是形态学处理中的一种基本操作，他首先对图像进行腐蚀（erosion）,然后进行膨胀（dilation)
 
   这种组合有助于去除小的明亮的活着暗淡的区域（即噪声），同时保持图像上的整体形状和结构` gray_opening_shape(Image,ImageOpening,7,7,'octagon')`
+
+### opening_shape 开运算
 
 ### gray_closing_shape 灰度闭运算
 
@@ -87,7 +80,63 @@ outline: deep
 *
 `histo_to_thresh(RelativeHisto,8,MinThresh,MaxThresh)`
 
+## 图像分割
+
+### threshold 阈值分割
+
+*  将GrayImage图片进行二值化处理，赋值给Region变量  
+   `threshold(GrayImage,Region,128,255)`
+
+### dyn_threshold 动态阈值分割
+
+- 局部阈值分割操作
+
+  ` dyn_threshold(ImageOpening,ImageClosing,RegionDynThresh,75,'not_equal')`
+
+### auto_threshold 使用直方图确定阈值对图像进行分割
+
+- 基于阈值，分割成前景（亮区域）和后景（暗区域）
+
+- 会自动计算阈值，根据阈值划分成不同的区域（Region）
+
+  `auto_threshold(Image,Regions,5)`
+
+### connection 连通域分析
+
+*  将Region变量进行连通域分析，赋值给ConnectedRegions变量      
+   `connection(Region,ConnectedRegions)`
+
+### sort_region 根据区域的相对位置进行排序
+**参数：** ConnectedRegions：要排序的区域 SortRegions：排序后的区域 'character'：按照字符排序 'true'：增加或减少 'row'：按照行排序   
+`sort_region(ConnectedRegions,SortRegions,'charscter','true','row')`
+### union1 返回所有输入区域的并集
+
+- 将每个单独的对象的合并成一个对象
+
+  `union1(ConnectedRegions,union1Region)`
+
+## 图像对比
+
+### create_shape_model 创建一个要匹配的模板
+
+**参数：**ImageReduced1输入的模型	'auto'金字塔等级的数量	rad(0)角度开始	rad(360)角度范围	auto角度的步长(分辨率) 	auto优化类型	'use_polarity'Match指标	'auto'对比度阈值	'auto'搜索图像中对象的最小对比度	ModelID模型的句柄`create_shape_model(ImageReduced1,'auto',rad(0),rad(360),'auto','auto','use_polarity','auto','auto',ModelID)`
+
+### find_shape_model 查找图像中形状模型的最佳匹配项
+
+**参数：**Image输入的图像	ModelID模型的句柄	rad(0)最小旋转	rad(360)旋转的角度范围	0.5最低接受分数	1匹配的数量	0.5实例的最大重叠数	'least_squares'子像素	0匹配使用金字塔等级数	0.9搜索启发式的贪婪模式	Row1找到模型的行坐标	Cloumn1找到模型的列坐标	Angle找到的模型实例的旋转角度	Score找到的模型的实例分数`find_shape_model(Image,ModelID,rad(0),rad(360),0.5,1,0.5,'least_squares',0,0.9,Row1,Cloumn1,Angle,Score)`
+
+### dev_display_shape_matching_results 显示匹配结果
+
+**参数：** ModelID输入的匹配模型	'red'输入匹配结果后用什么颜色展示	Row1输入匹配的y坐标的位置	Column1输入匹配的x坐标的位置	Angle输入匹配的对应的角度	1水平方向的缩放比例	1垂直方向的缩放比例	0找到的模型实例的索引`dev_display_shape_matching_results(ModelID,'red',Row1,Column1,Angle,1,1,0)`
+
+### vector_angle_to_rigiid 计算来自点和角度的刚性仿射变换
+
+**参数：**Row 原始点的行坐标	Column原始点的列坐标	0原始点的旋转角度	Row1 变换点的行坐标	Column1变换点的列坐标	Angle变换点的旋转角度	HomMat2D输出的转换矩阵
+
+`vector_angle_to_rigiid(Row,Column,0,Row,Column1,Angle,HomMat2D)`
+
 ## 仿射变换
+
 ### hom_mat2d_identity 获取图片的矩阵常量
 * 获取图片的常量矩阵赋值给HomMat2D  
   `hom_mat2d_identity(HomMat2D)`
@@ -103,7 +152,13 @@ outline: deep
 ### affine_trans_image  仿射变换
 *  将Image图片根据HomMat2DRotate矩阵进行仿射变换，将变换后的图像赋值给ImageAffineTrans变量
    `affine_trans_image(Image,ImageAffineTrans,HomMat2DRotate,'constant','false')`
+
+### affine_trans_region 对区域应用任意仿射2D变换
+
+**参数：** RegionUnion要旋转和缩放的区域	RegionAffineTrans变换过的图像	HomMat2D输入变换矩阵	nearest_neighbor应该使用插值来完成转换吗`affine_trans_region(RegionUnion,RegionAffineTrans,HomMat2D,'nearest_neighbor')`
+
 ## 图像增强
+
 ### invert_image 图像取反算子
 * 将GrayImage图片进行取反操作，赋值给InvertImage变量  
 `invert_image(GrayImage,InvertImage)`
