@@ -259,3 +259,52 @@ tuple_length(nums,Length)
   `SetColored(Image,12)`
 
 ### dev_set_colored 设置颜色数量
+
+## 识别
+# 二维码和一维码识别
+
+halcon扫描二维码若出现中文会有中文乱码问题,在halcon中给出方案是
+
+```
+set_system ('filename_encoding', 'utf8')
+```
+
+*创建一个二维码数据class模型
+1.create_data_code_2d_model (‘QR Code’,‘default_parameters’, ‘maximum_recognition’,DataCodeHandle)
+*-检测和读取图像中的二维数据代码符号或训练二维数据代码模型。
+2.find_data_code_2d (GrayImage,SymbolXLDs,DataCodeHandle, ‘train’, ‘all’,ResultHandles, DecodedDataStrings)
+*删除2D数据代码模型并释放分配的内存。
+3.clear_data_code_2d_model(DataCodeHandle)
+
+我们经常会碰到的问题
+
+1.Halcon算子默认情况下，只识别一个。如果需要识别多个二位码，修改下面参数：
+find_data_code_2d (Image2, SymbolXLDs, DataCodeHandle, ‘stop_after_result_num’, 3, ResultHandles, DecodedDataStrings) 表示识别图片中3个二位数。按照要求修改。
+2.关于二维码的类型：
+
+create_data_code_2d_model算子的第一个参数，就是二位码类型，如果想做成通用的二位码类型，就需要枚举每个类型了。
+2d_codeMode:=[‘Aztec Code’, ‘Data Matrix ECC 200’, ‘GS1 Aztec Code’, ‘GS1 DataMatrix’, ‘GS1 QR Code’, ‘Micro QR Code’, ‘PDF417’, ‘QR Code’]
+
+3.图像预处理和二维码增强（图片本身问题调整）
+对比度太低：scale_image（Scale the gray values of an image），增强图像的对比度。白话的意思是让黑的地方更黑，亮的地方更亮
+图像模糊：emphasize锐化图像，使二维码看起来更清晰。
+关于这两个算子，将在下面章节介绍。
+
+4.如果整张图信息太多，则可以先把二维码区域挖出来，使用reduce_domain和crop_domain算子，这样不仅可以降低解码难度，还可以减少解码时间。
+
+5、当二维码很小的时候，可以尝试用zoom_image_factor放大了二维码图像。
+
+6、create_data_code_2d_model (‘QR Code’, [], [], DataCodeHandleQR)
+
+创建模型时，[ ]中不填内容，实际默认属性名是‘default_parameters’，默认属性值是‘standard_recognition’。
+如果想大幅度提高解码成功率，可以将属性值置为‘enhanced_recognition’或者‘maximum_recognition’。注意：解码能力越强，解码时间越长。
+
+最后还有几个算子也值得注意一下：
+
+set_data_code_2d_param ：设置解码时的参数
+
+get_data_code_2d_param ：获取解码时的参数（如果没有设置过，则获得的是默认值）
+
+get_data_code_2d_results ：获得解码后的一些结果
+
+以上是关于二维码识别的相关情况的总结，实际工程项目中，还需要将二维码识别数据显示出来和传递出去。
