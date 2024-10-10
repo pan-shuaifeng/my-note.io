@@ -13,8 +13,8 @@ outline: deep
 2. 兼容性-> 更改高DPI设置
 3. 勾选替代高DPI缩放行为
 ## visionPro类型
-- CogGraphicCollection 形状的数组集合类型  索引类型ICogGraphic
-     ```csharp
+### CogGraphicCollection 形状的数组集合类型  索引类型ICogGraphic
+```csharp
   //基本使用
      CogBlobResult b = myList[i] as CogBlobResult;
       CogPolygon p = b.GetBoundary(); 
@@ -24,21 +24,6 @@ outline: deep
         p.LineStyle = CogGraphicLineStyleConstants.Solid;
         gc.Add(p); 
       }
-   ```
-  - 斑点工具(特殊)
-  ```csharp
-   CogBlobResult b = myList[i] as CogBlobResult;
-   p.Color = CogColorConstants.Yellow;
-        p.LineWidthInScreenPixels = 5;
-        p.LineStyle = CogGraphicLineStyleConstants.Solid;
-  //获取边界
-  CogPolygon p = b.GetBoundary();
-  //创建一个矩形
-  CogRectangleAffine rect = new CogRectangleAffine();
-  rect = cbtItem.GetBoundingBox(CogBlobAxisConstants.Principal)//获取斑点最小的外接矩形
-  rect = cbtItem.GetBoundingBox(CogBlobAxisConstants.PixelAligned)//获取像素对齐的外接矩形
-  
-  double h = b.GetMeasure(CogBlobMeasureConstants.BoundingBoxExtremaAngleHeight); // ImageBoundHeight 获取边界高度
    ```
 - 杂项
    ```csharp
@@ -72,7 +57,21 @@ outline: deep
     - 角度
     - 面积
     - BoundHeight 边界高度
-
+- 斑点工具(特殊)
+  ```csharp
+   CogBlobResult b = myList[i] as CogBlobResult;
+   p.Color = CogColorConstants.Yellow;
+        p.LineWidthInScreenPixels = 5;
+        p.LineStyle = CogGraphicLineStyleConstants.Solid;
+  //获取边界
+  CogPolygon p = b.GetBoundary();
+  //创建一个矩形
+  CogRectangleAffine rect = new CogRectangleAffine();
+  rect = cbtItem.GetBoundingBox(CogBlobAxisConstants.Principal)//获取斑点最小的外接矩形
+  rect = cbtItem.GetBoundingBox(CogBlobAxisConstants.PixelAligned)//获取像素对齐的外接矩形
+  
+  double h = b.GetMeasure(CogBlobMeasureConstants.BoundingBoxExtremaAngleHeight); // ImageBoundHeight 获取边界高度
+   ```
 ### **CogCaliperTool**
 - 卡尺工具
 

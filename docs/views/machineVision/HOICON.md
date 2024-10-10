@@ -77,8 +77,11 @@ tuple_length(nums,Length)
 *  
 `gray_histo(Image,Image,AbsoluteHisto,RelativeHisto)`
 ### histo_to_thresh 根据图像直方图自动确定阈值，从而将灰度图像转化为二值图像
-*
 `histo_to_thresh(RelativeHisto,8,MinThresh,MaxThresh)`
+
+### wait_seconds 延时
+
+wait_seconds(0.5)延时0.5秒
 
 ## 图像分割
 
@@ -92,6 +95,10 @@ tuple_length(nums,Length)
 - 局部阈值分割操作
 
   ` dyn_threshold(ImageOpening,ImageClosing,RegionDynThresh,75,'not_equal')`
+
+### binary_threshold 自动全局阈值分割
+
+- binary_threshold(Image,Region,'max_separability','dark',WindowHandle)
 
 ### auto_threshold 使用直方图确定阈值对图像进行分割
 
