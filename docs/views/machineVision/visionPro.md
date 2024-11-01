@@ -25,6 +25,8 @@ outline: deep
         gc.Add(p); 
       }
    ```
+
+
 - 杂项
    ```csharp
   CogMisc.RadToDeg(弧度)//将弧度转为角度

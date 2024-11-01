@@ -19,3 +19,4 @@ git push -f git@github.com:pan-shuaifeng/my-note.io.git main:main
 # git push -f git@github.com:你的git名/你的git项目名.git master:你的git分支
 
 cd -
+手机电池和充电器表面OCR字符检测方案

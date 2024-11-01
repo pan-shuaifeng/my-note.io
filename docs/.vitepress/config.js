@@ -49,6 +49,7 @@ module.exports = {
                     { text: '面试题', link: '/views/machineVision/InterviewQuestion',
                         items: [
                             { text: '全部', link: '/views/machineVision/InterviewQuestion.md' },
+                            { text: '项目', link: '/views/machineVision/project.md' },
                       /*       { text: 'c#面试题', link: '/views/machineVision/basics.md' },
                             { text: '硬件选型面试题', link: '/views/machineVision/basics.md' },
                             { text: 'VisionPro面试题', link: '/views/machineVision/basics.md' },

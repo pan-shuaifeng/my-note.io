@@ -4,7 +4,7 @@ layout: home
 hero:
   name: 小潘的学习历程
   text: 加油&努力
-  tagline: html->css->js->vue->react(了解)->node(学习中)->java(学习中)->mysql(学习中)
+  tagline: 机器视觉：C#、VisionPro、HaIcon、visionMaster<br/>前端：html->css->js->vue->react(了解)->node <br/>后端：java(学习中)->mysql(学习中)
   image:
     src: /favicon.ico
     alt: 网站的 logo 图片

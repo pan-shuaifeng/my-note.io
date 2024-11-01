@@ -68,6 +68,87 @@ delete from user where id = 1;
 删除user表中id为1的数据
 ```
 
+## 实战
+#### **user表**
+![1728647420134](assets/1728647420134.png)
+
+
+```mysql
+-- 插入一条数据
+-- INSERT INTO `user` VALUES(103,'Lucy','333') ; 
+
+-- 修改信息·
+-- UPDATE `user` SET pwd='444' WHERE id=103;
+
+-- 删除
+-- DELETE FROM `user` WHERE id=103;
+
+-- 查询
+SELECT * FROM `user`;
+
+SELECT * FROM `user` WHERE id=104;
+
+SELECT * FROM `user` WHERE name='Tom' AND pwd='123';
+
+-- 模糊查询
+
+SELECT * FROM `user` WHERE name LIKE 'T%';
+-- 插入一条数据
+INSERT INTO `user` (`name`,pwd) VALUES('Lucy','333') ; 
+```
+
+
+
+#### **emp表**
+
+![1728647483529](assets/1728647483529.png)
+
+```mysql
+-- 统计公司人数
+SELECT COUNT(*) FROM emp;
+
+-- 统计研发部门总人数
+
+SELECT COUNT(ename) FROM emp WHERE dept='研发部';
+
+-- 统计不是研发部门总人数
+
+SELECT COUNT(ename) FROM emp WHERE dept!='研发部';
+
+-- 统计所有员工的最高工资
+
+SELECT MAX(sal) FROM emp;
+
+-- 求研发部，销售部的最高最低工资
+
+SELECT MAX(sal) FROM emp WHERE dept='研发部';
+
+SELECT min(sal) FROM emp WHERE dept='研发部';
+
+SELECT MAX(sal) FROM emp WHERE dept='销售部';
+
+SELECT MIN(sal) FROM emp WHERE dept='销售部';
+
+-- 统计所有员工的总工资
+SELECT SUM(sal) FROM emp ;
+
+-- 求所有员工的平均工资
+SELECT AVG(sal) FROM emp;
+
+-- 求各个部门的工资总和，平均工资
+SELECT SUM(sal) FROM emp WHERE dept='研发部';
+
+SELECT AVG(sal) FROM emp WHERE dept='研发部';
+
+SELECT SUM(sal) FROM emp WHERE dept='销售部';
+
+SELECT AVG(sal) FROM emp WHERE dept='销售部';
+
+-- limit 从0索引开始查两条数据
+
+SELECT * FROM emp LIMIT 0,2;
+
+```
 
 
 
