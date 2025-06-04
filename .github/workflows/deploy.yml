@@ -6,7 +6,7 @@ on:
   # 在针对 `main` 分支的推送上运行。如果你
   # 使用 `master` 分支作为默认分支，请将其更改为 `master`
   push:
-    branches: [main]
+    branches: [ main ]
 
   # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
@@ -47,11 +47,16 @@ jobs:
         run: |
           yarn docs:build # 或 pnpm docs:build /npm run docs:build   / bun run docs:build
           touch docs/.vitepress/dist/.nojekyll
+       # ✅ 显式添加 upload-artifact 步骤（避免下载失败）
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: docs/.vitepress/dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: docs/.vitepress/dist
-
 
   # 部署工作
   deploy:
